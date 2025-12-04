@@ -7,7 +7,10 @@ import { authMiddleware, createCorsMiddleware, loggerMiddleware } from './middle
 const app = express();
 
 app.use(express.json());
-app.use(createCorsMiddleware());
+app.use(cors({
+  origin: '*',
+  credentials: true,
+}));
 app.use(loggerMiddleware);
 
 app.get('/', (req, res) => {
@@ -33,4 +36,5 @@ mongoose
     console.error('Failed to connect to MongoDB', err);
     process.exit(1);
   });
+
 
