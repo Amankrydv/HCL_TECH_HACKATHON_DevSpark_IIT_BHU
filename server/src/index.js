@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { PORT, MONGO_URI } from './config.js';
 import { router } from './routes.js';
 import { authMiddleware, createCorsMiddleware, loggerMiddleware } from './middleware.js';
-
+import cors from 'cors'; 
 const app = express();
 
 app.use(express.json());
@@ -36,5 +36,6 @@ mongoose
     console.error('Failed to connect to MongoDB', err);
     process.exit(1);
   });
+
 
 
