@@ -25,7 +25,7 @@ app.get('/api/secure-ping', authMiddleware, (req, res) => {
 });
 
 mongoose
-  .connect("mongodb+srv://rahulkumareee21_db_user:gW1ScaYtgd72ltWy@cluster0.lnq6mxv.mongodb.net/?appName=Cluster0")
+  .connect(MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => {
@@ -36,6 +36,7 @@ mongoose
     console.error('Failed to connect to MongoDB', err);
     process.exit(1);
   });
+
 
 
 
